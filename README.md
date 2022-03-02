@@ -1,2 +1,2 @@
 # PY4E
-Increasing python ability outside of Data Science usage
+Increasing python skills with the python for everybody course.
