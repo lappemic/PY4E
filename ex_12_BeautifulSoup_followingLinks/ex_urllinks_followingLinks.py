@@ -18,33 +18,23 @@ html = urllib.request.urlopen(url, context=ctx).read()
 soup = BeautifulSoup(html, 'html.parser')
 counts = int(input('Enter count: '))
 position = int(input('Enter position: '))
-
+# print(position)
+position = position - 1
+# print(position)
 # Retrieve all of the anchor tags
 tags = soup('a')
 #print(tags)
-print('Retrieving: ', tags[0].get('href', None))
+print('Retrieving: ', url)
 
 for count in range(counts):
-    # print(tags[position].get('href', None))
-    urln = tags[position].get('href', None)
-    # print(urln)
-    htmln = urllib.request.urlopen(urln, context = ctx).read()
-    soupn = BeautifulSoup(htmln, 'html.parser')
-    tags = soupn('a')
     print('Retrieving: ', tags[position].get('href', None))
-    # for line in fhand:
-    #     print(line.decode().strip())
-
-
-
-# fhand = urllib.request.urlopen('http://www.dr-chuck.com/page1.htm')
-# for line in fhand:
-#     print(line.decode().strip())
-
-# for tag in tags:
-#     print(tag.get('href', None))
-
-
+    # print(tags[position].get('href', None))
+    url = tags[position].get('href', None)
+    # print(urln)
+    html = urllib.request.urlopen(url, context = ctx).read()
+    soup = BeautifulSoup(html, 'html.parser')
+    tags = soup('a')
+    # print('Retrieving: ', tags[position].get('href', None))
 
 
 #print(type(tags))
