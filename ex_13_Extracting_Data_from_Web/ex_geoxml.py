@@ -39,5 +39,10 @@ while True:
     lng = results[0].find('geometry').find('location').find('lng').text
     location = results[0].find('formatted_address').text
 
-    print('lat', lat, 'lng', lng)
+    cc = results[0].find('address_component').find('short_name').text
+    asn = tree.findall('.//short_name')
+
+    print('latasdf', lat, 'lng', lng)
     print(location)
+    print('Countrycode: ', cc)
+    print(asn)
